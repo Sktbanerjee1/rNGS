@@ -49,6 +49,13 @@ conda install -c bioconda \
 fastqc trimmomatic \
 bowtie2 samtools bedtools \
 sambamba picard
+
+# deactivate the environment
+conda deactivate rNGS
+
+# finish
+echo "installation complete!"
+echo "run conda activate rNGS"
 ```
 
 Run the installer using the following command:
