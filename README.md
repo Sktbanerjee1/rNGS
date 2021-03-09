@@ -3,8 +3,7 @@ Bash scripts for reproducible NGS data processing.
 
 ![DOI](https://zenodo.org/badge/345268065.svg)
 
-## Contributing 
-![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)]
+![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)
 
 
 ## Getting Started
