@@ -1,6 +1,7 @@
 # rNGS
 Bash scripts for reproducible NGS data processing.
-[![DOI](https://zenodo.org/badge/345268065.svg)](https://zenodo.org/badge/latestdoi/345268065)
+
+[![DOI](https://zenodo.org/badge/345268065.svg)]
 
 ## Getting Started
 
