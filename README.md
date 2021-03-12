@@ -110,13 +110,15 @@ bash scripts/genome_generate.sh
 
 ```bash
 bash scripts/align.sh
-
-# Usage: scripts/align.sh -i idx -f ref -r rev -o out_dir -s sample
+# # Usage: scripts/align.sh -i idx -m run_mode -f Fwd_paied -r Rev_paired -o -u UnmetFile -o out_dir -s sample_prefix -p threads
 # 	-i generated genome idx
 # 	-f paired fwd fastq/fastq.gz
 # 	-r paired rev fastq/fastq.gz
+# 	-u SingleEnd fastq/fastq.gz
 # 	-o Path to the directory where the outputs will be written
-# 	-s Name of the sample
+# 	-s Sample Prefix
+# 	-m Value must be SingleEnd/PairedEnd
+# 	-p Threads
 
 ```
 
