@@ -67,10 +67,6 @@ I=${sample_name}_sorted.sam \
 O=${sample_name}_sorted_markdup.sam \
 METRICS_FILE=${sample_name}_rmdup.txt
 
-# quality filter
-echo "Doing QC"
-minQualityScore=2
-samtools view -q $minQualityScore ${sample_name}_sorted_markdup.sam >${sample_name}_sorted_markdup_qc.sam
 
 # convert sam to bam
 echo "Converting sam to bam..."
@@ -84,21 +80,7 @@ sambamba sort -n ${sample_name}_sorted_markdup.bam -o ${sample_name}_sorted.bam
 echo "Creating bed file..."
 bedtools bamtobed -i ${sample_name}_sorted.bam -bedpe > ${sample_name}.bed
 
-# clean up bed
-awk '$1==$4 && $6-$2 < 1000 {print $0}' ${sample_name}.bed >${sample_name}.clean.bed
-## Only extract the fragment related columns
-cut -f 1,2,6 ${sample_name}.clean.bed | sort -k1,1 -k2,2n -k3,3n  >${sample_name}_fragments.bed
-
-# fragments
-binLen=500
-awk -v w=$binLen '{print $1, int(($2 + $3)/(2*w))*w + w/2}' ${sample_name}_fragments.bed | sort -k1,1V -k2,2n | uniq -c | awk -v OFS="\t" '{print $2, $3, $1}' |  sort -k1,1V -k2,2n  >${sample_name}_fragments.binLen.bed
-
-# create bedgraph
-scale_factor=`echo "10000 / $seqDepth" | bc -l`
-echo "Scaling factor for ${sample_name} is: ${scale_factor}!"
-
 echo "creating bedgraph"
-bedtools genomecov -bg -scale $scale_factor -i ${sample_name}_fragments.bed -g ${chr_sizes} > ${sample_name}.bedgraph
-
+bedtools genomecov -bg -ibam ${sample_name}_sorted.bam > ${sample_name}.bedgraph
 
 echo "Done!"
