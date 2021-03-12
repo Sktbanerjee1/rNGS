@@ -7,27 +7,25 @@
 helpFunction()
 {
    echo ""
-   echo "Usage: $0 -i target -o out_dir -c chr_sizes"
+   echo "Usage: $0 -i target -o out_dir"
    echo -e "\t-i input sam file"
    echo -e "\t-s sample_name"
    echo -e "\t-o Path to the directory where the outputs will be written"
-   echo -e "\t-c sizes of the chromosomes"
    exit 1 # Exit script after printing help
 }
 
-while getopts "i:s:o:c:" opt
+while getopts "i:s:o:" opt
 do
    case "$opt" in
       i ) target="$OPTARG" ;;
       s ) sample_name="$OPTARG" ;;
       o ) out_dir="$OPTARG" ;;
-      c ) chr_sizes="$OPTARG" ;;
       ? ) helpFunction ;; # Print helpFunction in case parameter is non-existent
    esac
 done
 
 # Print helpFunction in case parameters are empty
-if [ -z "$target" ] || [ -z "$sample_name" ] || [ -z "$out_dir" ] || [ -z "$chr_sizes" ]
+if [ -z "$target" ] || [ -z "$sample_name" ] || [ -z "$out_dir" ]
 then
    echo "All the parameters are required!";
    helpFunction
