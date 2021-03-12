@@ -131,9 +131,8 @@ bash scripts/align.sh
 
 bash scripts/sam2bed.sh 
 
-# Usage: scripts/sam2bed.sh -i target -o out_dir -c chr_sizes
+# Usage: scripts/sam2bed.sh -i target -o out_dir
 # 	-i input sam file
 # 	-s sample_name
 # 	-o Path to the directory where the outputs will be written
-# 	-c sizes of the chromosomes
 ```
