@@ -67,10 +67,6 @@ METRICS_FILE=${sample_name}_rmdup.txt
 echo "Converting sam to bam..."
 samtools view -bS -F 0x04 ${sample_name}_sorted_markdup.sam > ${sample_name}_sorted_markdup.bam
 
-# sort bam
-echo "Sorting bam..."
-sambamba sort -n ${sample_name}_sorted_markdup.bam -o ${sample_name}_sorted.bam
-
 echo "creating bedgraph"
 bedtools genomecov -bg -ibam ${sample_name}_sorted.bam > ${sample_name}.bedgraph
 

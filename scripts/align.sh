@@ -7,11 +7,11 @@
 helpFunction()
 {
    echo ""
-   echo "Usage: $0 -i idx -m run_mode -f Fwd_paied -r Rev_paired -o -u UnmetFile -o out_dir -s sample_prefix -p threads"
+   echo "Usage: $0 -i idx -m run_mode -f Fwd_paied -r Rev_paired -u UnmetFile -o out_dir -s sample_prefix -p threads"
    echo -e "\t-i generated genome idx"
    echo -e "\t-f paired fwd fastq/fastq.gz"
    echo -e "\t-r paired rev fastq/fastq.gz"
-   echo -e "\t-u SingleEnd fastq/fastq.gz"
+   echo -e "\t-u fastq/fastq.gz (for SingleEnd only)"
    echo -e "\t-o Path to the directory where the outputs will be written"
    echo -e "\t-s Sample Prefix"
    echo -e "\t-m Value must be SingleEnd/PairedEnd"
