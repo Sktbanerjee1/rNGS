@@ -74,10 +74,6 @@ samtools view -bS -F 0x04 ${sample_name}_sorted_markdup.sam > ${sample_name}_sor
 echo "Sorting bam..."
 sambamba sort -n ${sample_name}_sorted_markdup.bam -o ${sample_name}_sorted.bam
 
-# convert bam to bed
-echo "Creating bed file..."
-bedtools bamtobed -i ${sample_name}_sorted.bam -bedpe > ${sample_name}.bed
-
 echo "creating bedgraph"
 bedtools genomecov -bg -ibam ${sample_name}_sorted.bam > ${sample_name}.bedgraph
 
