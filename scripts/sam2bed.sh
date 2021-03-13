@@ -37,13 +37,11 @@ echo "_________________________"
 # print run info
 echo "${now}"
 target=$(realpath ${target})
-echo "ref: ${target}"
+echo "target: ${target}"
 mkdir -p ${out_dir}
 out_dir=$(realpath ${out_dir})
 echo "out_dir: ${out_dir}"
 echo "sample_name: ${sample_name}"
-chr_sizes=$(realpath ${chr_sizes})
-echo "chr_sizes: ${chr_sizes}"
 echo "_________________________"
 cd ${out_dir}
 
@@ -64,7 +62,6 @@ picard MarkDuplicates \
 I=${sample_name}_sorted.sam \
 O=${sample_name}_sorted_markdup.sam \
 METRICS_FILE=${sample_name}_rmdup.txt
-
 
 # convert sam to bam
 echo "Converting sam to bam..."
